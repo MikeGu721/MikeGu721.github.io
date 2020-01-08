@@ -184,8 +184,21 @@
 <p>2.将十进制数y转换为Q进制数z</p>
 <p>​    这步的思想是将y除以Q，得到的余数存于低位，并将商继续重复前面的过程</p>
 <p>第二部分是自己编写的一个输入两个十进制数输出这两个数在D进制下的和的函数</p>
-<p>#include <iostream>//将P进制的x转化为Q进制数输出<br>int main()<br>{<br>    int x, P, product = 1, y = 0;//P是输入进制数，x是输入数，product用于计算P的n次方，y是十进制数<br>    printf(“请输入数字：”);<br>    scanf_s(“%d”, &amp;x);<br>    printf(“请输入进制数：”);<br>    scanf_s(“%d”, &amp;P);<br>    while (x != 0) {<br>        y = y + (x % 10) * product;<br>        x = x / 10;<br>        product = product * P;<br>    }//将P进制数x转换为十进制y</p>
-<pre><code>int z[40], num = 0, Q;//Q是输出进制数，z是输出数，num用来指示数组
+<pre><code>#include &lt;iostream&gt;//将P进制的x转化为Q进制数输出
+int main()
+{
+    int x, P, product = 1, y = 0;//P是输入进制数，x是输入数，product用于计算P的n次方，y是十进制数
+    printf(&quot;请输入数字：&quot;);
+    scanf_s(&quot;%d&quot;, &amp;x);
+    printf(&quot;请输入进制数：&quot;);
+    scanf_s(&quot;%d&quot;, &amp;P);
+    while (x != 0) {
+        y = y + (x % 10) * product;
+        x = x / 10;
+        product = product * P;
+    }//将P进制数x转换为十进制y
+
+int z[40], num = 0, Q;//Q是输出进制数，z是输出数，num用来指示数组
 printf(&quot;请输入输出进制数：&quot;);
 scanf_s(&quot;%d&quot;, &amp;Q);
 do {
