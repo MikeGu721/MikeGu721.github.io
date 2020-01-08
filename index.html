@@ -157,6 +157,106 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-基于C-编写的进制转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/09/%E5%9F%BA%E4%BA%8EC-%E7%BC%96%E5%86%99%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">基于C++编写的进制转换</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/09/%E5%9F%BA%E4%BA%8EC-%E7%BC%96%E5%86%99%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" class="archive-article-date">
+  	<time datetime="2020-01-08T17:26:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第一部分是最正常的进制转换</p>
+<p>代码将分成两步：</p>
+<p>1.将P进制数x转换为十进制y：</p>
+<p>​    这步的思想是将x的第n位乘以P的n次方累加到y</p>
+<p>2.将十进制数y转换为Q进制数z</p>
+<p>​    这步的思想是将y除以Q，得到的余数存于低位，并将商继续重复前面的过程</p>
+<p>第二部分是自己编写的一个输入两个十进制数输出这两个数在D进制下的和的函数</p>
+<p>#include <iostream>//将P进制的x转化为Q进制数输出<br>int main()<br>{<br>    int x, P, product = 1, y = 0;//P是输入进制数，x是输入数，product用于计算P的n次方，y是十进制数<br>    printf(“请输入数字：”);<br>    scanf_s(“%d”, &amp;x);<br>    printf(“请输入进制数：”);<br>    scanf_s(“%d”, &amp;P);<br>    while (x != 0) {<br>        y = y + (x % 10) * product;<br>        x = x / 10;<br>        product = product * P;<br>    }//将P进制数x转换为十进制y</p>
+<pre><code>int z[40], num = 0, Q;//Q是输出进制数，z是输出数，num用来指示数组
+printf(&quot;请输入输出进制数：&quot;);
+scanf_s(&quot;%d&quot;, &amp;Q);
+do {
+    z[num++] = y % Q;
+    y = y / Q;
+} while (y != 0);//将十进制数y转换为Q进制数z
+printf(&quot;输出的数字为：&quot;);
+for (int i = num - 1; i &gt;= 0; i--) {
+    printf(&quot;%d&quot;, z[i]);
+}
+//________________________________________________
+//下面的功能是输入十进制a和b，输出D进制的和
+int D, a, b;
+printf(&quot;\n下面进入add函数调试模块\n&quot;);
+printf(&quot;add函数功能是输入两个十进制数，输出他们的D进制数的和\n&quot;);
+printf(&quot;请输入进制数：&quot;);
+scanf_s(&quot;%d&quot;, &amp;D);
+printf(&quot;请输入两个十进制加数：&quot;);
+scanf_s(&quot;%d%d&quot;, &amp;a, &amp;b);
+printf(&quot;输出%d进制和为：&quot;, D);
+int all = a + b;
+int out[40], i;
+for (i = 0; all!=0; i++) {
+    out[i] = all % D;
+    all = all / D;
+}
+for (int p = i - 1; p &gt;= 0; p--) {
+    printf(&quot;%d&quot;, out[p]);
+}</code></pre><p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/09/%E5%9F%BA%E4%BA%8EC-%E7%BC%96%E5%86%99%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-讲讲如何在windows里配置git邮箱和密码吧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
