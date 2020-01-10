@@ -6,13 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://MikeGu721.github.io">
-  <title>兽族机枪兵的博客</title>
+  <title>关于如何C++中如何使用gets_s函数以及判断一个字符串是否为回文串 | 兽族机枪兵的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="兽族机枪兵的博客">
-<meta property="og:url" content="https://mikegu721.github.io/index.html">
+  <meta name="description" content="笔者今天正在准备考研复试机试，练到一道题，关于判断一个字符串是否是回文串——什么是回文串呢，就是指字符串是否关于中间对称，是的话该字符串就是回文串，然后笔者尝试在C++下用getchar()函数来完成这道题，但苦于getchar()是一个个输入，并且会录入回车，而判断回文串是直接判断一整个字符串。然后我就看到答案里是用gets来完成这道题的，在VS2019里，已经没有了gets，取而代之的是get">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于如何C++中如何使用gets_s函数以及判断一个字符串是否为回文串">
+<meta property="og:url" content="https://mikegu721.github.io/2020/01/10/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95C-%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gets-s%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E4%B8%BA%E5%9B%9E%E6%96%87%E4%B8%B2/index.html">
 <meta property="og:site_name" content="兽族机枪兵的博客">
+<meta property="og:description" content="笔者今天正在准备考研复试机试，练到一道题，关于判断一个字符串是否是回文串——什么是回文串呢，就是指字符串是否关于中间对称，是的话该字符串就是回文串，然后笔者尝试在C++下用getchar()函数来完成这道题，但苦于getchar()是一个个输入，并且会录入回车，而判断回文串是直接判断一整个字符串。然后我就看到答案里是用gets来完成这道题的，在VS2019里，已经没有了gets，取而代之的是get">
+<meta property="article:published_time" content="2020-01-10T06:28:58.000Z">
+<meta property="article:modified_time" content="2020-01-10T06:46:01.493Z">
 <meta property="article:author" content="兽族机枪兵">
+<meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="兽族机枪兵的博客" type="application/atom+xml">
@@ -155,16 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-关于如何C-中如何使用gets-s函数以及判断一个字符串是否为回文串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-关于如何C-中如何使用gets-s函数以及判断一个字符串是否为回文串" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/10/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95C-%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gets-s%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E4%B8%BA%E5%9B%9E%E6%96%87%E4%B8%B2/">关于如何C++中如何使用gets_s函数以及判断一个字符串是否为回文串</a>
+    <h1 class="article-title" itemprop="name">
+      关于如何C++中如何使用gets_s函数以及判断一个字符串是否为回文串
     </h1>
   
 
@@ -184,6 +187,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -202,16 +226,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/10/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95C-%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gets-s%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E4%B8%BA%E5%9B%9E%E6%96%87%E4%B8%B2/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://mikegu721.github.io/2020/01/10/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95C-%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gets-s%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E4%B8%BA%E5%9B%9E%E6%96%87%E4%B8%B2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/01/09/%E5%9F%BA%E4%BA%8EC-%E7%BC%96%E5%86%99%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基于C++编写的进制转换</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -231,255 +314,14 @@
 
 
 
-
   
-    <article id="post-基于C-编写的进制转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/09/%E5%9F%BA%E4%BA%8EC-%E7%BC%96%E5%86%99%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">基于C++编写的进制转换</a>
-    </h1>
   
 
-        
-        <a href="/2020/01/09/%E5%9F%BA%E4%BA%8EC-%E7%BC%96%E5%86%99%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" class="archive-article-date">
-  	<time datetime="2020-01-08T17:26:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第一部分是最正常的进制转换</p>
-<p>代码将分成两步：</p>
-<p>1.将P进制数x转换为十进制y：</p>
-<p>​    这步的思想是将x的第n位乘以P的n次方累加到y</p>
-<p>2.将十进制数y转换为Q进制数z</p>
-<p>​    这步的思想是将y除以Q，得到的余数存于低位，并将商继续重复前面的过程</p>
-<p>第二部分是自己编写的一个输入两个十进制数输出这两个数在D进制下的和的函数</p>
-<pre><code>#include &lt;iostream&gt;//将P进制的x转化为Q进制数输出
-int main()
-{
-    int x, P, product = 1, y = 0;//P是输入进制数，x是输入数，product用于计算P的n次方，y是十进制数
-    printf(&quot;请输入数字：&quot;);
-    scanf_s(&quot;%d&quot;, &amp;x);
-    printf(&quot;请输入进制数：&quot;);
-    scanf_s(&quot;%d&quot;, &amp;P);
-    while (x != 0) {
-        y = y + (x % 10) * product;
-        x = x / 10;
-        product = product * P;
-    }//将P进制数x转换为十进制y
-
-int z[40], num = 0, Q;//Q是输出进制数，z是输出数，num用来指示数组
-printf(&quot;请输入输出进制数：&quot;);
-scanf_s(&quot;%d&quot;, &amp;Q);
-do {
-    z[num++] = y % Q;
-    y = y / Q;
-} while (y != 0);//将十进制数y转换为Q进制数z
-printf(&quot;输出的数字为：&quot;);
-for (int i = num - 1; i &gt;= 0; i--) {
-    printf(&quot;%d&quot;, z[i]);
-}
-//________________________________________________
-//下面的功能是输入十进制a和b，输出D进制的和
-int D, a, b;
-printf(&quot;\n下面进入add函数调试模块\n&quot;);
-printf(&quot;add函数功能是输入两个十进制数，输出他们的D进制数的和\n&quot;);
-printf(&quot;请输入进制数：&quot;);
-scanf_s(&quot;%d&quot;, &amp;D);
-printf(&quot;请输入两个十进制加数：&quot;);
-scanf_s(&quot;%d%d&quot;, &amp;a, &amp;b);
-printf(&quot;输出%d进制和为：&quot;, D);
-int all = a + b;
-int out[40], i;
-for (i = 0; all!=0; i++) {
-    out[i] = all % D;
-    all = all / D;
-}
-for (int p = i - 1; p &gt;= 0; p--) {
-    printf(&quot;%d&quot;, out[p]);
-}</code></pre><p>}</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/09/%E5%9F%BA%E4%BA%8EC-%E7%BC%96%E5%86%99%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-讲讲如何在windows里配置git邮箱和密码吧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/%E8%AE%B2%E8%AE%B2%E5%A6%82%E4%BD%95%E5%9C%A8windows%E9%87%8C%E9%85%8D%E7%BD%AEgit%E9%82%AE%E7%AE%B1%E5%92%8C%E5%AF%86%E7%A0%81%E5%90%A7/">讲讲如何在windows里配置git邮箱和密码吧</a>
-    </h1>
   
 
-        
-        <a href="/2020/01/08/%E8%AE%B2%E8%AE%B2%E5%A6%82%E4%BD%95%E5%9C%A8windows%E9%87%8C%E9%85%8D%E7%BD%AEgit%E9%82%AE%E7%AE%B1%E5%92%8C%E5%AF%86%E7%A0%81%E5%90%A7/" class="archive-article-date">
-  	<time datetime="2020-01-08T10:26:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##写在最开头，本人刚转行计算机，啥都不是很会，但啥都想试试，所以搭建了这个博客，并打算先写一点简单的东西上传，如果能帮到大家就最好，帮不到大家就看个乐吧吧~~</p>
-<p>首先在百度输入github进入官网</p>
-<p>注册一个github账号，要填入邮箱、昵称、密码</p>
-<p>注册完成并用邮箱验证完成后按照以下步骤进行</p>
-<p>WIN+R 输入CMD调出控制台</p>
-<p>输入</p>
-<p>git config –global user.name “你刚刚注册填的昵称”</p>
-<p>git config –global user.email “你刚刚注册填的邮箱”</p>
-<p>这样就已经配置好了github全局昵称和邮箱</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/08/%E8%AE%B2%E8%AE%B2%E5%A6%82%E4%BD%95%E5%9C%A8windows%E9%87%8C%E9%85%8D%E7%BD%AEgit%E9%82%AE%E7%AE%B1%E5%92%8C%E5%AF%86%E7%A0%81%E5%90%A7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ÎҵĵÚһƪ²©¿Í" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/%C3%8E%D2%B5%C4%B5%C3%9A%D2%BB%C6%AA%C2%B2%C2%A9%C2%BF%C3%8D/">我的第一篇博客</a>
-    </h1>
   
 
-        
-        <a href="/2020/01/08/%C3%8E%D2%B5%C4%B5%C3%9A%D2%BB%C6%AA%C2%B2%C2%A9%C2%BF%C3%8D/" class="archive-article-date">
-  	<time datetime="2020-01-07T16:51:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##写在代码生涯开始<br>搭建了两天的平台<br>终于弄好了我的个人博客<br>基于hexo框架<br>部署在github的ip上<br>由git bash、node.js、cnpm构成的环境<br>利用vim和typora进行文本编辑<br>本来以为一切顺利，昨天就能弄好<br>但中间出了不少错误<br>一次次搭建好了网站，却又一次次删除了镜像文件<br>一次次的乱码，上网搜攻略<br>不说完美无缺，但至少没什么大的毛病<br>我的个人博客终于搭建成功<br>希望能与大家有很多交流，程序员永远不孤军奋战！<br>写于2020年1月8号</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/08/%C3%8E%D2%B5%C4%B5%C3%9A%D2%BB%C6%AA%C2%B2%C2%A9%C2%BF%C3%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -502,8 +344,8 @@ for (int p = i - 1; p &gt;= 0; p--) {
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
