@@ -15,9 +15,9 @@
 <meta property="og:site_name" content="兽族机枪兵的博客">
 <meta property="og:description" content="笔者今天正在准备考研复试机试，练到一道题，关于判断一个字符串是否是回文串——什么是回文串呢，就是指字符串是否关于中间对称，是的话该字符串就是回文串，然后笔者尝试在C++下用getchar()函数来完成这道题，但苦于getchar()是一个个输入，并且会录入回车，而判断回文串是直接判断一整个字符串。然后我就看到答案里是用gets来完成这道题的，在VS2019里，已经没有了gets，取而代之的是get">
 <meta property="article:published_time" content="2020-01-10T06:28:58.000Z">
-<meta property="article:modified_time" content="2020-01-10T06:46:01.493Z">
+<meta property="article:modified_time" content="2020-01-13T13:45:19.694Z">
 <meta property="article:author" content="兽族机枪兵">
-<meta property="article:tag" content="技术">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="兽族机枪兵的博客" type="application/atom+xml">
@@ -59,7 +59,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/C++/">C++</a></li>
+				<li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
 	        
 				<li><a href="/tags/%E5%85%B6%E4%BB%96%E6%8A%80%E6%9C%AF/">其他技术</a></li>
 	        
@@ -72,11 +72,11 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">标题搜索</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
@@ -89,7 +89,9 @@
 				
 					<a class="weibo" target="_blank" href="https://weibo.com/u/6554328385/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="qq" target="_blank" href="/437914030" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="https://user.qzone.qq.com/437914030/mood/ae091a1a89f30a5edc100a00.1?source=namecardhoverword" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="bilibili" target="_blank" href="https://space.bilibili.com/13871333" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
 					<a class="mail" target="_blank" href="/htair21@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -134,7 +136,9 @@
 					
 						<a class="weibo" target="_blank" href="https://weibo.com/u/6554328385/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="qq" target="_blank" href="/437914030" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="https://user.qzone.qq.com/437914030/mood/ae091a1a89f30a5edc100a00.1?source=namecardhoverword" title="qq"><i class="icon-qq"></i></a>
+			        
+						<a class="bilibili" target="_blank" href="https://space.bilibili.com/13871333" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
 						<a class="mail" target="_blank" href="/htair21@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -147,7 +151,7 @@
 				
 					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/C++/">C++</a></li>
+					<li style="width: 20%"><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
 		        
 					<li style="width: 20%"><a href="/tags/%E5%85%B6%E4%BB%96%E6%8A%80%E6%9C%AF/">其他技术</a></li>
 		        
@@ -188,7 +192,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>笔者今天正在准备考研复试机试，练到一道题，关于判断一个字符串是否是回文串——什么是回文串呢，就是指字符串是否关于中间对称，是的话该字符串就是回文串，然后笔者尝试在C++下用getchar()函数来完成这道题，但苦于getchar()是一个个输入，并且会录入回车，而判断回文串是直接判断一整个字符串。然后我就看到答案里是用gets来完成这道题的，在VS2019里，已经没有了gets，取而代之的是gets_s，不过这都无所谓，我觉得还蛮有趣的，所以大概整理了一下代码就传上来了：</p>
+        <p>笔者今天正在准备考研复试机试，练到一道题，关于判断一个字符串是否是回文串——什么是回文串呢，就是指字符串是否关于中间对称，是的话该字符串就是回文串，然后笔者尝试在C++下用getchar()函数来完成这道题，但苦于getchar()是一个个输入，并且会录入回车，而判断回文串是直接判断一整个字符串。然后我就看到答案里是用gets来完成这道题的，在VS2019里，已经没有了gets，取而代之的是gets_s，不过这都无所谓，我觉得还蛮有趣的</p>
+<a id="more"></a>
+
+<p>所以大概整理了一下代码就传上来了：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#96;#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line"></span><br><span class="line">const int maxn &#x3D; 256;</span><br><span class="line">bool judge(char str[]) &#123;</span><br><span class="line">	int len &#x3D; strlen(str);</span><br><span class="line">	for (int i &#x3D; 0; i &lt; len &#x2F; 2; i++) &#123;</span><br><span class="line">		if (str[i] !&#x3D; str[len - 1 - i]) &#123;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;&lt;!--判断一个字符串中第i个字符和第len-1-i个字符是否一样----len为字符串长度--&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	char str[maxn];</span><br><span class="line">	while (gets_s(str)) &#123;</span><br><span class="line">		bool flag &#x3D; judge(str);</span><br><span class="line">		if (flag &#x3D;&#x3D; true) &#123;</span><br><span class="line">			printf(&quot;Yes\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			printf(&quot;No\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;&lt;!--这里是使用gets_s输入整个字符串到数组str[]中，回车键结束且不录入回车键--&gt;</span><br><span class="line"></span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure>
 
 
@@ -225,7 +232,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -234,7 +241,7 @@
       
 
       
-
+    
       
         
 <div class="share-btn share-icons tooltip-left">
@@ -332,42 +339,19 @@
 
 
   
-  
+
   
 
   
-  <div id="SOHUCS" sid="关于如何C-中如何使用gets-s函数以及判断一个字符串是否为回文串" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "true",
-        conf: "true"
-    });
-</script>
-</script>
-  
 
-  
-    <section id="comments">
-      <div id="disqus_thread"></div>
-        <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'true'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
-    </section>
   
 
   
 
 
+```
+
+```
           </div>
         </div>
       </div>
@@ -429,11 +413,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">标题搜索</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
       
         
       
@@ -458,7 +442,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">求助</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,11 +450,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">求助</a>
+                <a href="javascript:void(0)" class="js-tag color5">其他技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">dusign</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo-theme-snail</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">snail</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>
@@ -627,5 +627,20 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

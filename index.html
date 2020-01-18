@@ -54,7 +54,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/C++/">C++</a></li>
+				<li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
 	        
 				<li><a href="/tags/%E5%85%B6%E4%BB%96%E6%8A%80%E6%9C%AF/">其他技术</a></li>
 	        
@@ -67,11 +67,11 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">标题搜索</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
@@ -84,7 +84,9 @@
 				
 					<a class="weibo" target="_blank" href="https://weibo.com/u/6554328385/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="qq" target="_blank" href="/437914030" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="https://user.qzone.qq.com/437914030/mood/ae091a1a89f30a5edc100a00.1?source=namecardhoverword" title="qq"><i class="icon-qq"></i></a>
+		        
+					<a class="bilibili" target="_blank" href="https://space.bilibili.com/13871333" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
 					<a class="mail" target="_blank" href="/htair21@163.com" title="mail"><i class="icon-mail"></i></a>
 		        
@@ -129,7 +131,9 @@
 					
 						<a class="weibo" target="_blank" href="https://weibo.com/u/6554328385/home?wvr=5" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="qq" target="_blank" href="/437914030" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="https://user.qzone.qq.com/437914030/mood/ae091a1a89f30a5edc100a00.1?source=namecardhoverword" title="qq"><i class="icon-qq"></i></a>
+			        
+						<a class="bilibili" target="_blank" href="https://space.bilibili.com/13871333" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
 						<a class="mail" target="_blank" href="/htair21@163.com" title="mail"><i class="icon-mail"></i></a>
 			        
@@ -142,7 +146,7 @@
 				
 					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 20%"><a href="/tags/C++/">C++</a></li>
+					<li style="width: 20%"><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
 		        
 					<li style="width: 20%"><a href="/tags/%E5%85%B6%E4%BB%96%E6%8A%80%E6%9C%AF/">其他技术</a></li>
 		        
@@ -165,37 +169,30 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-关于VS2019无法使用scanf-s输入字符串的解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关于C-标准库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/11/%E5%85%B3%E4%BA%8EVS2019%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8scanf-s%E8%BE%93%E5%85%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">关于VS2019无法使用scanf_s输入字符串的解决方法</a>
+      <a class="article-title" href="/2020/01/18/%E5%85%B3%E4%BA%8EC-%E6%A0%87%E5%87%86%E5%BA%93/">关于C++标准库——vector函数</a>
     </h1>
   
 
         
-        <a href="/2020/01/11/%E5%85%B3%E4%BA%8EVS2019%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8scanf-s%E8%BE%93%E5%85%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-01-11T01:45:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-11</time>
+        <a href="/2020/01/18/%E5%85%B3%E4%BA%8EC-%E6%A0%87%E5%87%86%E5%BA%93/" class="archive-article-date">
+  	<time datetime="2020-01-18T00:37:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这段时间来，我在VS2019开发环境下，发现了scanf_s(“%s”,&amp;d);这条语句无法像老版本那样正常执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char d[20];</span><br><span class="line">    scanf_s(&quot;%s&quot;, &amp;d);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这串代码输出若是mikegu的话，得到的结果则会是</p>
-<p><img src="C:%5CUsers%5Cadmin%5Cblog%5Csource_img%5CQQ%E6%88%AA%E5%9B%BE20200111095427.png" alt="QQ截图20200111095427"></p>
-<p>不知道有没有人遇到和我一样的问题，查阅了网上的资料之后我发现解决方法其实非常简单，因为编译器会检测参数缺失，但无法确定缺少的参数是宽度或内容，所以它假定所提供的参数为第一个，而对于宽度，缺少参数为第二个类型转换说明符，必须检查格式字符串以确定实际缺少的参数。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char d[20];</span><br><span class="line">    scanf_s(&quot;%s&quot;, &amp;d,sizeof(d));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>我们人为的加上一个宽度，则算法可以正确执行了</p>
-<p><img src="C:%5CUsers%5Cadmin%5Cblog%5Csource_img%5CQQ%E6%88%AA%E5%9B%BE20200111095855.png" alt="QQ截图20200111095855"></p>
-
+        <p>在写这篇文章时，笔者最近正在学习java，下了个editplus，用editplus编辑了内容，结果上传的时候布局特别不舒服，然后又花了好多时间在typora里重新排版，以后还是老老实实在typora里写博客吧。</p>
+        
+          <a class="article-more-a" href="/2020/01/18/%E5%85%B3%E4%BA%8EC-%E6%A0%87%E5%87%86%E5%BA%93/#more">more >></a>
+        
       
 
       
@@ -208,7 +205,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -218,10 +215,10 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/11/%E5%85%B3%E4%BA%8EVS2019%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8scanf-s%E8%BE%93%E5%85%A5%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/01/18/%E5%85%B3%E4%BA%8EC-%E6%A0%87%E5%87%86%E5%BA%93/">展开全文 >></a>
         </p>
       
-
+    
       
       <div class="clearfix"></div>
     </div>
@@ -247,6 +244,325 @@
 
 
 
+```
+
+```
+  
+    <article id="post-基于C-的二分思想及其应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/13/%E5%9F%BA%E4%BA%8EC-%E7%9A%84%E4%BA%8C%E5%88%86%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/">基于C++的二分思想及其应用</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/13/%E5%9F%BA%E4%BA%8EC-%E7%9A%84%E4%BA%8C%E5%88%86%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-01-13T07:39:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>昨天写了半天的简历，本以为写简历不要多少时间的，后来发现，好多公司都是让你提交一份简历附件，然后再让你填一堆东西，学习成绩、获奖情况什么的，基本上就是把简历里的东西再填到他们的选项里。一切弄好了后看了会儿日语，再把这个博客的搜索系统搞出来了，最后打打游戏一天就过去了。今天重整旗鼓，继续来搞算法</p>
+        
+          <a class="article-more-a" href="/2020/01/13/%E5%9F%BA%E4%BA%8EC-%E7%9A%84%E4%BA%8C%E5%88%86%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/13/%E5%9F%BA%E4%BA%8EC-%E7%9A%84%E4%BA%8C%E5%88%86%E6%80%9D%E6%83%B3%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+    
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+```
+
+```
+  
+    <article id="post-关于VS2019无法使用scanf-s输如字符串问题的解决方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/11/%E5%85%B3%E4%BA%8EVS2019%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8scanf-s%E8%BE%93%E5%A6%82%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">关于VS2019无法使用scanf_s输如字符串问题的解决方法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/11/%E5%85%B3%E4%BA%8EVS2019%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8scanf-s%E8%BE%93%E5%A6%82%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-01-11T10:56:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>至今没有弄好插图的问题，这篇文章算是挖的坑了吧，不知道什么时候能填上</p>
+        
+          <a class="article-more-a" href="/2020/01/11/%E5%85%B3%E4%BA%8EVS2019%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8scanf-s%E8%BE%93%E5%A6%82%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">其他技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/11/%E5%85%B3%E4%BA%8EVS2019%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8scanf-s%E8%BE%93%E5%A6%82%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%97%AE%E9%A2%98%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+    
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+```
+
+```
+  
+    <article id="post-贪心算法初尝试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/11/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%88%9D%E5%B0%9D%E8%AF%95/">贪心算法初尝试</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/11/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%88%9D%E5%B0%9D%E8%AF%95/" class="archive-article-date">
+  	<time datetime="2020-01-11T10:44:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>贪心算法这个词我在去年备战考研初试的时候就已经接触过了，如今开始正式的对这种算法进行学习</p>
+        
+          <a class="article-more-a" href="/2020/01/11/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%88%9D%E5%B0%9D%E8%AF%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/11/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%88%9D%E5%B0%9D%E8%AF%95/">展开全文 >></a>
+        </p>
+      
+    
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+```
+
+```
+  
+    <article id="post-全排列递归算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/11/%E5%85%A8%E6%8E%92%E5%88%97%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/">基于C++编写的全排列递归算法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/11/%E5%85%A8%E6%8E%92%E5%88%97%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-01-11T07:51:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天想分享的第一篇文章，是关于全排列递归的，昨天学习到的散列法可以牺牲空间来减少算法的时间开销，今天在学习全排列时，考虑到全排列本身的排列数就非常之多，那么利用散列法正好可以提高算法的执行效率，通过递归嵌套与循环结构的组合可以遍历所有的可能性，并在散列表中将已排数字标记，则可以极大地减少遍历次数</p>
+        
+          <a class="article-more-a" href="/2020/01/11/%E5%85%A8%E6%8E%92%E5%88%97%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/11/%E5%85%A8%E6%8E%92%E5%88%97%E9%80%92%E5%BD%92%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+    
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+```
+
+```
   
     <article id="post-两种有意思的空间换时间的算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -255,7 +571,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/10/%E4%B8%A4%E7%A7%8D%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E7%A9%BA%E9%97%B4%E6%8D%A2%E6%97%B6%E9%97%B4%E7%9A%84%E7%AE%97%E6%B3%95/">两种有意思的空间换时间的算法</a>
+      <a class="article-title" href="/2020/01/10/%E4%B8%A4%E7%A7%8D%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E7%A9%BA%E9%97%B4%E6%8D%A2%E6%97%B6%E9%97%B4%E7%9A%84%E7%AE%97%E6%B3%95/">基于C++编写的两种有意思的空间换时间的算法</a>
     </h1>
   
 
@@ -269,25 +585,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>今日在练习PAT时，看到两个简单的以空间换时间的查找法，感觉比较有意思，就整理了一下传了上来</p>
-<p>1.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">const int maxn &#x3D; 100010;</span><br><span class="line">bool hashTable[maxn] &#x3D; &#123; false &#125;;</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n, m, x;</span><br><span class="line">	printf(&quot;请输入待查询数的个数：\n&quot;);</span><br><span class="line">	scanf_s(&quot;%d&quot;, &amp;n);</span><br><span class="line">	printf(&quot;请输入查询数的个数：\n&quot;);</span><br><span class="line">	scanf_s(&quot;%d&quot;, &amp;m);</span><br><span class="line">	for (int i &#x3D; 0; i &lt; n; i++) &#123;</span><br><span class="line">		printf(&quot;请输入待查询数：\n&quot;);</span><br><span class="line">		scanf_s(&quot;%d&quot;, &amp;x);</span><br><span class="line">		hashTable[x] &#x3D; true;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; m; i++) &#123;</span><br><span class="line">		printf(&quot;请输入查询数：\n&quot;);</span><br><span class="line">		scanf_s(&quot;%d&quot;, &amp;x);</span><br><span class="line">		if (hashTable[x] &#x3D;&#x3D; true) &#123;</span><br><span class="line">			printf(&quot;有这个数\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			printf(&quot;没有这个数\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个算法是在N个数中查找M个数，如果正常使用暴力破解法，则两层遍历需要的时间复杂度为O(MN)，当N和M都很大的时候这显然会导致巨大的开销，那么就牺牲空间来换取时间，利用bool hashTable[]数组来对输入的N进行预处理，当N中存在某个数时，hashTable[]中相应的就置为true，N中不存在则不做调整，那么当查询M的时候，利用静态数组的随机存取的特性，每一次查询一个数只需要O(1)的时间复杂度，查询M个数的时间复杂度为O(M)，整个算法的时间复杂度为O(M+N)，空间复杂度为O(N)</p>
-<p>2.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">const int maxn &#x3D; 100010;</span><br><span class="line">int hashTable[maxn] &#x3D; &#123; 0 &#125;;</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n, m, x;</span><br><span class="line">	printf(&quot;请输入待查询数的个数：\n&quot;);</span><br><span class="line">	scanf_s(&quot;%d&quot;, &amp;n);</span><br><span class="line">	printf(&quot;请输入查询数的个数：\n&quot;);</span><br><span class="line">	scanf_s(&quot;%d&quot;, &amp;m);</span><br><span class="line">	for (int i &#x3D; 0; i &lt; n; i++) &#123;</span><br><span class="line">		printf(&quot;请输入待查询数：\n&quot;);</span><br><span class="line">		scanf_s(&quot;%d&quot;, &amp;x);</span><br><span class="line">		hashTable[x]++;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; m; i++) &#123;</span><br><span class="line">		printf(&quot;请输入查询数：\n&quot;);</span><br><span class="line">		scanf_s(&quot;%d&quot;, &amp;x);</span><br><span class="line">		printf(&quot;有%d个\n&quot;, hashTable[x]);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>别急别急，这只是上面那个算法的变种，不是我说的第二种空间换时间的算法，这个算法的功能不仅在于输出有没有该数，更在于有几个所查询的数字</p>
-<p>以上两个算法共有一个特性，就是将输入数直接作为数组下标，这个方法我觉得很实用，是一种比较常见的空间换时间的方法，但若查询数超过数组下标上限了呢？这就需要用到我今天学到的第二个精彩的方法——散列法，散列法的定义我就不做详述了，我觉得数据结构作为计算机的入门课程，大家肯定学的比我这个初学者要好的很多，这里散列法主要就是将那些非常大的数字通过一个函数转化为在规定范围内的整数</p>
-<p>我们先来看看如何将字符串转化成一组数字</p>
-<p>3.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int hashFunc(char S[], int len) &#123;</span><br><span class="line">	int id &#x3D; 0;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">		if (S[i] &gt;&#x3D; &#39;A&#39; &amp;&amp; S[i] &lt;&#x3D; &#39;Z&#39;) &#123;&#x2F;&#x2F;0~25是大写字母</span><br><span class="line">			id &#x3D; id * 62 + (S[i] - &#39;A&#39;);</span><br><span class="line">		&#125;</span><br><span class="line">		else if (S[i] &gt;&#x3D; &#39;a&#39; &amp;&amp; S[i] &lt;&#x3D; &#39;z&#39;) &#123;</span><br><span class="line">			id &#x3D; id * 62 + (S[i] - &#39;a&#39;) + 26;&#x2F;&#x2F;26~51是小写字母</span><br><span class="line">		&#125;</span><br><span class="line">		else if (S[i] &gt;&#x3D; &#39;0&#39; &amp;&amp; S[i] &lt;&#x3D; &#39;9&#39;) &#123;</span><br><span class="line">			id &#x3D; id * 62 + (S[i] - &#39;0&#39;) + 52;&#x2F;&#x2F;52~61是数字</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return id;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>从上面的算法我们可以看出，A<del>Z，a</del>z，0~9视为六十二进制数，将六十二进制数转化成十进制数，则就是该字符串所对应的数值，由此可知每一种字母排列组合所对应的数值是唯一的，那么当len不是很大时，我们就可以用散列法将字符串变成数字，以此来进行查找。</p>
-<p>现在，我们结合空间换时间算法，散列法，来解决一个问题试试：给出N个字符串（由恰好三位大写字母组成），再给出M个查询字符串，问每个查询字符串在N个字符串中出现的次数</p>
-<p>4.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">int hashFuna(char S[], int len) &#123;&#x2F;&#x2F;只将大写字母进行转换</span><br><span class="line">	int id &#x3D; 0;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">		id &#x3D; id * 26 + (S[i] - &#39;A&#39;);&#x2F;&#x2F;字符串的字母按照二十六进制转化为十进制</span><br><span class="line">	&#125;</span><br><span class="line">	return id;</span><br><span class="line">&#125;</span><br><span class="line">const int maxn &#x3D; 100;</span><br><span class="line">char S[maxn][5], temp[5];</span><br><span class="line">int hashTable[26 * 26 * 26 + 10];&#x2F;&#x2F;三个大写字母，每个字母为26进制，则需要26³的空间大小</span><br><span class="line">int main() &#123;</span><br><span class="line">	int n, m;</span><br><span class="line">	printf(&quot;请输入待查询数的个数：\n&quot;);</span><br><span class="line">	scanf_s(&quot;%d&quot;, &amp;n);</span><br><span class="line">	printf(&quot;请输入查询数的个数：\n&quot;);</span><br><span class="line">	scanf_s(&quot;%d&quot;, &amp;m);</span><br><span class="line">	for (int i &#x3D; 0; i &lt; n; i++) &#123;</span><br><span class="line">		printf(&quot;请输入待查询字符串（每个字符串由三个大写字母组成）：\n&quot;);</span><br><span class="line">			scanf_s(&quot;%s&quot;, &amp;S[i], sizeof(S[i]));</span><br><span class="line">		int id &#x3D; hashFuna(S[i], 3);</span><br><span class="line">		hashTable[id]++;</span><br><span class="line">	&#125;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; m; i++) &#123;</span><br><span class="line">		printf(&quot;请输入查询字符串（每个字符串由三个大写字母组成）：\n&quot;);</span><br><span class="line">			scanf_s(&quot;%s&quot;, &amp;temp, sizeof(temp));</span><br><span class="line">		int id &#x3D; hashFuna(temp, 3);</span><br><span class="line">		printf(&quot;有%d个该字符串\n&quot;, hashTable[id]);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+        
+          <a class="article-more-a" href="/2020/01/10/%E4%B8%A4%E7%A7%8D%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E7%A9%BA%E9%97%B4%E6%8D%A2%E6%97%B6%E9%97%B4%E7%9A%84%E7%AE%97%E6%B3%95/#more">more >></a>
+        
       
 
       
@@ -300,7 +600,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -313,7 +613,7 @@
           <a class="article-more-a" href="/2020/01/10/%E4%B8%A4%E7%A7%8D%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E7%A9%BA%E9%97%B4%E6%8D%A2%E6%97%B6%E9%97%B4%E7%9A%84%E7%AE%97%E6%B3%95/">展开全文 >></a>
         </p>
       
-
+    
       
       <div class="clearfix"></div>
     </div>
@@ -339,6 +639,9 @@
 
 
 
+```
+
+```
   
     <article id="post-寻求帮助，如何增添留言栏" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -387,7 +690,7 @@
           <a class="article-more-a" href="/2020/01/10/%E5%AF%BB%E6%B1%82%E5%B8%AE%E5%8A%A9%EF%BC%8C%E5%A6%82%E4%BD%95%E5%A2%9E%E6%B7%BB%E7%95%99%E8%A8%80%E6%A0%8F/">展开全文 >></a>
         </p>
       
-
+    
       
       <div class="clearfix"></div>
     </div>
@@ -413,6 +716,9 @@
 
 
 
+```
+
+```
   
     <article id="post-关于如何C-中如何使用gets-s函数以及判断一个字符串是否为回文串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -434,10 +740,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>笔者今天正在准备考研复试机试，练到一道题，关于判断一个字符串是否是回文串——什么是回文串呢，就是指字符串是否关于中间对称，是的话该字符串就是回文串，然后笔者尝试在C++下用getchar()函数来完成这道题，但苦于getchar()是一个个输入，并且会录入回车，而判断回文串是直接判断一整个字符串。然后我就看到答案里是用gets来完成这道题的，在VS2019里，已经没有了gets，取而代之的是gets_s，不过这都无所谓，我觉得还蛮有趣的，所以大概整理了一下代码就传上来了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#96;#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line"></span><br><span class="line">const int maxn &#x3D; 256;</span><br><span class="line">bool judge(char str[]) &#123;</span><br><span class="line">	int len &#x3D; strlen(str);</span><br><span class="line">	for (int i &#x3D; 0; i &lt; len &#x2F; 2; i++) &#123;</span><br><span class="line">		if (str[i] !&#x3D; str[len - 1 - i]) &#123;</span><br><span class="line">			return false;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;&lt;!--判断一个字符串中第i个字符和第len-1-i个字符是否一样----len为字符串长度--&gt;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	char str[maxn];</span><br><span class="line">	while (gets_s(str)) &#123;</span><br><span class="line">		bool flag &#x3D; judge(str);</span><br><span class="line">		if (flag &#x3D;&#x3D; true) &#123;</span><br><span class="line">			printf(&quot;Yes\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			printf(&quot;No\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;&lt;!--这里是使用gets_s输入整个字符串到数组str[]中，回车键结束且不录入回车键--&gt;</span><br><span class="line"></span><br><span class="line">&#96;</span><br></pre></td></tr></table></figure>
-
-
+        <p>笔者今天正在准备考研复试机试，练到一道题，关于判断一个字符串是否是回文串——什么是回文串呢，就是指字符串是否关于中间对称，是的话该字符串就是回文串，然后笔者尝试在C++下用getchar()函数来完成这道题，但苦于getchar()是一个个输入，并且会录入回车，而判断回文串是直接判断一整个字符串。然后我就看到答案里是用gets来完成这道题的，在VS2019里，已经没有了gets，取而代之的是gets_s，不过这都无所谓，我觉得还蛮有趣的</p>
+        
+          <a class="article-more-a" href="/2020/01/10/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95C-%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gets-s%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E4%B8%BA%E5%9B%9E%E6%96%87%E4%B8%B2/#more">more >></a>
+        
       
 
       
@@ -450,7 +756,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -463,7 +769,7 @@
           <a class="article-more-a" href="/2020/01/10/%E5%85%B3%E4%BA%8E%E5%A6%82%E4%BD%95C-%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gets-s%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E5%90%A6%E4%B8%BA%E5%9B%9E%E6%96%87%E4%B8%B2/">展开全文 >></a>
         </p>
       
-
+    
       
       <div class="clearfix"></div>
     </div>
@@ -489,6 +795,9 @@
 
 
 
+```
+
+```
   
     <article id="post-基于C-编写的进制转换" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -510,58 +819,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第一部分是最正常的进制转换</p>
-<p>代码将分成两步：</p>
-<p>1.将P进制数x转换为十进制y：</p>
-<p>​    这步的思想是将x的第n位乘以P的n次方累加到y</p>
-<p>2.将十进制数y转换为Q进制数z</p>
-<p>​    这步的思想是将y除以Q，得到的余数存于低位，并将商继续重复前面的过程</p>
-<p>第二部分是自己编写的一个输入两个十进制数输出这两个数在D进制下的和的函数</p>
-<pre><code>#include &lt;iostream&gt;//将P进制的x转化为Q进制数输出
-int main()
-{
-    int x, P, product = 1, y = 0;//P是输入进制数，x是输入数，product用于计算P的n次方，y是十进制数
-    printf(&quot;请输入数字：&quot;);
-    scanf_s(&quot;%d&quot;, &amp;x);
-    printf(&quot;请输入进制数：&quot;);
-    scanf_s(&quot;%d&quot;, &amp;P);
-    while (x != 0) {
-        y = y + (x % 10) * product;
-        x = x / 10;
-        product = product * P;
-    }//将P进制数x转换为十进制y
-
-int z[40], num = 0, Q;//Q是输出进制数，z是输出数，num用来指示数组
-printf(&quot;请输入输出进制数：&quot;);
-scanf_s(&quot;%d&quot;, &amp;Q);
-do {
-    z[num++] = y % Q;
-    y = y / Q;
-} while (y != 0);//将十进制数y转换为Q进制数z
-printf(&quot;输出的数字为：&quot;);
-for (int i = num - 1; i &gt;= 0; i--) {
-    printf(&quot;%d&quot;, z[i]);
-}
-//________________________________________________
-//下面的功能是输入十进制a和b，输出D进制的和
-int D, a, b;
-printf(&quot;\n下面进入add函数调试模块\n&quot;);
-printf(&quot;add函数功能是输入两个十进制数，输出他们的D进制数的和\n&quot;);
-printf(&quot;请输入进制数：&quot;);
-scanf_s(&quot;%d&quot;, &amp;D);
-printf(&quot;请输入两个十进制加数：&quot;);
-scanf_s(&quot;%d%d&quot;, &amp;a, &amp;b);
-printf(&quot;输出%d进制和为：&quot;, D);
-int all = a + b;
-int out[40], i;
-for (i = 0; all!=0; i++) {
-    out[i] = all % D;
-    all = all / D;
-}
-for (int p = i - 1; p &gt;= 0; p--) {
-    printf(&quot;%d&quot;, out[p]);
-}</code></pre><p>}</p>
-
+        <p>比较有意思的时，这里写的进制转换，不限与八进制十进制，十进制以下几进制转换都能进行</p>
+        
+          <a class="article-more-a" href="/2020/01/09/%E5%9F%BA%E4%BA%8EC-%E7%BC%96%E5%86%99%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/#more">more >></a>
+        
       
 
       
@@ -574,7 +835,7 @@ for (int p = i - 1; p &gt;= 0; p--) {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
         		</li>
       		
 		</ul>
@@ -587,7 +848,7 @@ for (int p = i - 1; p &gt;= 0; p--) {
           <a class="article-more-a" href="/2020/01/09/%E5%9F%BA%E4%BA%8EC-%E7%BC%96%E5%86%99%E7%9A%84%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">展开全文 >></a>
         </p>
       
-
+    
       
       <div class="clearfix"></div>
     </div>
@@ -613,6 +874,9 @@ for (int p = i - 1; p &gt;= 0; p--) {
 
 
 
+```
+
+```
   
     <article id="post-讲讲如何在windows里配置git邮箱和密码吧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -635,15 +899,9 @@ for (int p = i - 1; p &gt;= 0; p--) {
     <div class="article-entry" itemprop="articleBody">
       
         <p>##写在最开头，本人刚转行计算机，啥都不是很会，但啥都想试试，所以搭建了这个博客，并打算先写一点简单的东西上传，如果能帮到大家就最好，帮不到大家就看个乐吧吧~~</p>
-<p>首先在百度输入github进入官网</p>
-<p>注册一个github账号，要填入邮箱、昵称、密码</p>
-<p>注册完成并用邮箱验证完成后按照以下步骤进行</p>
-<p>WIN+R 输入CMD调出控制台</p>
-<p>输入</p>
-<p>git config –global user.name “你刚刚注册填的昵称”</p>
-<p>git config –global user.email “你刚刚注册填的邮箱”</p>
-<p>这样就已经配置好了github全局昵称和邮箱</p>
-
+        
+          <a class="article-more-a" href="/2020/01/08/%E8%AE%B2%E8%AE%B2%E5%A6%82%E4%BD%95%E5%9C%A8windows%E9%87%8C%E9%85%8D%E7%BD%AEgit%E9%82%AE%E7%AE%B1%E5%92%8C%E5%AF%86%E7%A0%81%E5%90%A7/#more">more >></a>
+        
       
 
       
@@ -656,7 +914,7 @@ for (int p = i - 1; p &gt;= 0; p--) {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">其他技术</a>
         		</li>
       		
 		</ul>
@@ -669,7 +927,7 @@ for (int p = i - 1; p &gt;= 0; p--) {
           <a class="article-more-a" href="/2020/01/08/%E8%AE%B2%E8%AE%B2%E5%A6%82%E4%BD%95%E5%9C%A8windows%E9%87%8C%E9%85%8D%E7%BD%AEgit%E9%82%AE%E7%AE%B1%E5%92%8C%E5%AF%86%E7%A0%81%E5%90%A7/">展开全文 >></a>
         </p>
       
-
+    
       
       <div class="clearfix"></div>
     </div>
@@ -695,81 +953,14 @@ for (int p = i - 1; p &gt;= 0; p--) {
 
 
 
+```
+
+```
   
-    <article id="post-ÎҵĵÚһƪ²©¿Í" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/%C3%8E%D2%B5%C4%B5%C3%9A%D2%BB%C6%AA%C2%B2%C2%A9%C2%BF%C3%8D/">我的第一篇博客</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/08/%C3%8E%D2%B5%C4%B5%C3%9A%D2%BB%C6%AA%C2%B2%C2%A9%C2%BF%C3%8D/" class="archive-article-date">
-  	<time datetime="2020-01-07T16:51:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##写在代码生涯开始<br>搭建了两天的平台<br>终于弄好了我的个人博客<br>基于hexo框架<br>部署在github的ip上<br>由git bash、node.js、cnpm构成的环境<br>利用vim和typora进行文本编辑<br>本来以为一切顺利，昨天就能弄好<br>但中间出了不少错误<br>一次次搭建好了网站，却又一次次删除了镜像文件<br>一次次的乱码，上网搜攻略<br>不说完美无缺，但至少没什么大的毛病<br>我的个人博客终于搭建成功<br>希望能与大家有很多交流，程序员永远不孤军奋战！<br>写于2020年1月8号</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/08/%C3%8E%D2%B5%C4%B5%C3%9A%D2%BB%C6%AA%C2%B2%C2%A9%C2%BF%C3%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -834,11 +1025,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">标题搜索</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
       
         
       
@@ -863,7 +1054,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">求助</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -871,11 +1062,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">求助</a>
+                <a href="javascript:void(0)" class="js-tag color5">其他技术</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">dusign</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hexo-theme-snail</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">snail</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1032,5 +1239,20 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
