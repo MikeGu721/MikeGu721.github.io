@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>安卓开发 显示时间</title>
+      <link href="/2020/03/02/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91-%E6%98%BE%E7%A4%BA%E6%97%B6%E9%97%B4/"/>
+      <url>/2020/03/02/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91-%E6%98%BE%E7%A4%BA%E6%97%B6%E9%97%B4/</url>
+      
+        <content type="html"><![CDATA[<p>本人在学习安卓开发之余，看到CSDN上有个作者——「是我ChaoYoung」写了一篇关于安卓开发调用系统时间的文章，于是做个了小结：</p><p>System.currentTimeMillis()可以获取系统当前的时间，这里使用时最好使用线程，通过handler发消息，来实时的更新TextView上显示的系统时间。具体就是写一个线程，线程里面无限循环，每隔一秒发送一个消息，并在主线程里面处理消息并更新时间 </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class TimeThread extends Thread &#123;</span><br><span class="line">@Override</span><br><span class="line">public void run() &#123;</span><br><span class="line">do &#123;</span><br><span class="line">try &#123;</span><br><span class="line">Thread.sleep(1000);</span><br><span class="line">Message msg &#x3D; new Message();</span><br><span class="line">msg.what &#x3D; 1;  &#x2F;&#x2F;消息(一个整型值)</span><br><span class="line">mHandler.sendMessage(msg);&#x2F;&#x2F; 每隔1秒发送一个msg给mHandler</span><br><span class="line">&#125; catch (InterruptedException e) &#123;</span><br><span class="line">e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line">&#125; while (true);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><pre><code>//在主线程里面处理消息并更新UI界面private Handler mHandler = new Handler(){    @Override    public void handleMessage(Message msg) {        super.handleMessage(msg);        switch (msg.what) {            case 1:                long sysTime = System.currentTimeMillis();//获取系统时间                CharSequence sysTimeStr = DateFormat.format(&quot;hh:mm:ss&quot;, sysTime);//时间显示格式                time.setText(sysTimeStr); //更新时间                break;            default:                break;        }    }};</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>安卓开发学习笔记--文本控件</title>
       <link href="/2020/02/14/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%96%87%E6%9C%AC%E6%8E%A7%E4%BB%B6/"/>
       <url>/2020/02/14/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%96%87%E6%9C%AC%E6%8E%A7%E4%BB%B6/</url>
