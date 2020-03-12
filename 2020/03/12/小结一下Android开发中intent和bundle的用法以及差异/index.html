@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          安卓开发 显示时间 - Hexo-theme-MikeGu721
+          小结一下Android开发中intent和bundle的用法以及差异 - Hexo-theme-MikeGu721
         
     </title>
 
-    <link rel="canonical" href="https://mikegu721.github.io/2020/03/02/安卓开发-显示时间/">
+    <link rel="canonical" href="https://mikegu721.github.io/2020/03/12/小结一下Android开发中intent和bundle的用法以及差异/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -109,20 +109,20 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Android" title="Android">Android</a>
+                              <a class="tag" href="/tags/#安卓" title="安卓">安卓</a>
                             
                         </div>
-                        <h1>安卓开发 显示时间</h1>
+                        <h1>小结一下Android开发中intent和bundle的用法以及差异</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by 兽族机枪兵 on
-                            2020-03-02
+                            2020-03-12
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">269</span> and
+                                Words <span class="post-count">280</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -262,39 +262,26 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>本人在学习安卓开发之余，看到CSDN上有个作者——「是我ChaoYoung」写了一篇关于安卓开发调用系统时间的文章，于是做个了小结：</p>
-<p>System.currentTimeMillis()可以获取系统当前的时间，这里使用时最好使用线程，通过handler发消息，来实时的更新TextView上显示的系统时间。具体就是写一个线程，线程里面无限循环，每隔一秒发送一个消息，并在主线程里面处理消息并更新时间 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class TimeThread extends Thread &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void run() &#123;</span><br><span class="line">		do &#123;</span><br><span class="line">			try &#123;</span><br><span class="line">				Thread.sleep(1000);</span><br><span class="line">				Message msg &#x3D; new Message();</span><br><span class="line">				msg.what &#x3D; 1;  &#x2F;&#x2F;消息(一个整型值)</span><br><span class="line">				mHandler.sendMessage(msg);&#x2F;&#x2F; 每隔1秒发送一个msg给mHandler</span><br><span class="line">			&#125; catch (InterruptedException e) &#123;</span><br><span class="line">					e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; while (true);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<pre><code>//在主线程里面处理消息并更新UI界面
-private Handler mHandler = new Handler(){
-    @Override
-    public void handleMessage(Message msg) {
-        super.handleMessage(msg);
-        switch (msg.what) {
-            case 1:
-                long sysTime = System.currentTimeMillis();//获取系统时间
-                CharSequence sysTimeStr = DateFormat.format(&quot;hh:mm:ss&quot;, sysTime);//时间显示格式
-                time.setText(sysTimeStr); //更新时间
-                break;
-            default:
-                break;
+                <h1 id="Intent传送数据的方式"><a href="#Intent传送数据的方式" class="headerlink" title="Intent传送数据的方式"></a>Intent传送数据的方式</h1><p>MainActivity页面中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; new Intent(MainActivity.this,DemoActivity.class);</span><br><span class="line">intent.putExtra(&quot;lucky_number&quot;,&quot;7&quot;);</span><br><span class="line">intent.putExtra(&quot;describe&quot;,&quot;This is my lucky number&quot;);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<p>DemoActivity页面中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; getIntent();</span><br><span class="line">describe &#x3D; intent.getStringExtra(&quot;describe&quot;);</span><br><span class="line">lucky_number &#x3D; intent.getIntExtra(&quot;lucky_number&quot;);</span><br><span class="line"></span><br><span class="line">Intent new_intent &#x3D; new Intent(DemoActivity.this,Demo2Activity);</span><br><span class="line">intent.putExtra(&quot;A_lucky_number&quot;,lucky_number);</span><br><span class="line">intent.putExtra(&quot;A_describe&quot;,describe);</span><br><span class="line">startActivity(new_intent);</span><br></pre></td></tr></table></figure>
+<p>然后Demo2Activity中再做相应的接受</p>
+<h1 id="Bundle传送数据的方式"><a href="#Bundle传送数据的方式" class="headerlink" title="Bundle传送数据的方式"></a>Bundle传送数据的方式</h1><p>MainActivity页面中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; new Intent(MainActivity,this,DemoActivity.class);</span><br><span class="line">Bundle bundle &#x3D; new Bundle();</span><br><span class="line">bundle.putString(&quot;describe&quot;,&quot;This is my lucky number&quot;);</span><br><span class="line">bundle.putInt(&quot;lucky_number&quot;,&quot;7&quot;);</span><br><span class="line">intent.putExtra(&quot;bundle&quot;,bundle);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<p>DemoActivity页面中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; getIntent();</span><br><span class="line">bundle &#x3D; intent.getBundleExtra(&quot;bundle&quot;);</span><br><span class="line"></span><br><span class="line">Intent new_intent &#x3D; new Intent(DemoActivity.this,Demo2Activity.class);</span><br><span class="line">bundle.putBoolean(&quot;boolean&quot;,true);</span><br><span class="line">intent.putExtra(&quot;bundle&quot;,bundle);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<p>然后Demo2Activity中再做相应的接受</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>可以看到，当数据量小以及转发页面数不多的时候，Intent这种一个一个读的方法将有很大的轻便性；但当内容一旦增大，转发的页面数量一旦增多，远不如bundle这种将数据打包的方式来得清晰简洁。</p>
 
-        }
-    }
-};
-</code></pre>
                 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2020/03/12/小结一下Android开发中intent和bundle的用法以及差异/" data-toggle="tooltip" data-placement="top" title="小结一下Android开发中intent和bundle的用法以及差异">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2020/02/14/安卓开发学习笔记-文本控件/" data-toggle="tooltip" data-placement="top" title="安卓开发学习笔记--文本控件">Next Post &rarr;</a>
+                        <a href="/2020/03/02/安卓开发-显示时间/" data-toggle="tooltip" data-placement="top" title="安卓开发 显示时间">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -371,7 +358,7 @@ const myTheme = {
 
 
 const gitment = new Gitment({
-    id: 'Mon Mar 02 2020 21:06:39 GMT+0800', // optional
+    id: 'Thu Mar 12 2020 20:38:42 GMT+0800', // optional
     owner: "",
     repo: "",
     oauth: {
@@ -418,7 +405,7 @@ const gitment = new Gitment({
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Android" title="Android">Android</a>
+                          <a class="tag" href="/tags/#安卓" title="安卓">安卓</a>
                         
                     </div>
                 </section>

@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>小结一下Android开发中intent和bundle的用法以及差异</title>
+      <link href="/2020/03/12/%E5%B0%8F%E7%BB%93%E4%B8%80%E4%B8%8BAndroid%E5%BC%80%E5%8F%91%E4%B8%ADintent%E5%92%8Cbundle%E7%9A%84%E7%94%A8%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%B7%AE%E5%BC%82/"/>
+      <url>/2020/03/12/%E5%B0%8F%E7%BB%93%E4%B8%80%E4%B8%8BAndroid%E5%BC%80%E5%8F%91%E4%B8%ADintent%E5%92%8Cbundle%E7%9A%84%E7%94%A8%E6%B3%95%E4%BB%A5%E5%8F%8A%E5%B7%AE%E5%BC%82/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Intent传送数据的方式"><a href="#Intent传送数据的方式" class="headerlink" title="Intent传送数据的方式"></a>Intent传送数据的方式</h1><p>MainActivity页面中：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; new Intent(MainActivity.this,DemoActivity.class);</span><br><span class="line">intent.putExtra(&quot;lucky_number&quot;,&quot;7&quot;);</span><br><span class="line">intent.putExtra(&quot;describe&quot;,&quot;This is my lucky number&quot;);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure><p>DemoActivity页面中：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; getIntent();</span><br><span class="line">describe &#x3D; intent.getStringExtra(&quot;describe&quot;);</span><br><span class="line">lucky_number &#x3D; intent.getIntExtra(&quot;lucky_number&quot;);</span><br><span class="line"></span><br><span class="line">Intent new_intent &#x3D; new Intent(DemoActivity.this,Demo2Activity);</span><br><span class="line">intent.putExtra(&quot;A_lucky_number&quot;,lucky_number);</span><br><span class="line">intent.putExtra(&quot;A_describe&quot;,describe);</span><br><span class="line">startActivity(new_intent);</span><br></pre></td></tr></table></figure><p>然后Demo2Activity中再做相应的接受</p><h1 id="Bundle传送数据的方式"><a href="#Bundle传送数据的方式" class="headerlink" title="Bundle传送数据的方式"></a>Bundle传送数据的方式</h1><p>MainActivity页面中：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; new Intent(MainActivity,this,DemoActivity.class);</span><br><span class="line">Bundle bundle &#x3D; new Bundle();</span><br><span class="line">bundle.putString(&quot;describe&quot;,&quot;This is my lucky number&quot;);</span><br><span class="line">bundle.putInt(&quot;lucky_number&quot;,&quot;7&quot;);</span><br><span class="line">intent.putExtra(&quot;bundle&quot;,bundle);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure><p>DemoActivity页面中：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; getIntent();</span><br><span class="line">bundle &#x3D; intent.getBundleExtra(&quot;bundle&quot;);</span><br><span class="line"></span><br><span class="line">Intent new_intent &#x3D; new Intent(DemoActivity.this,Demo2Activity.class);</span><br><span class="line">bundle.putBoolean(&quot;boolean&quot;,true);</span><br><span class="line">intent.putExtra(&quot;bundle&quot;,bundle);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure><p>然后Demo2Activity中再做相应的接受</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>可以看到，当数据量小以及转发页面数不多的时候，Intent这种一个一个读的方法将有很大的轻便性；但当内容一旦增大，转发的页面数量一旦增多，远不如bundle这种将数据打包的方式来得清晰简洁。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 安卓 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>安卓开发 显示时间</title>
       <link href="/2020/03/02/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91-%E6%98%BE%E7%A4%BA%E6%97%B6%E9%97%B4/"/>
       <url>/2020/03/02/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91-%E6%98%BE%E7%A4%BA%E6%97%B6%E9%97%B4/</url>
