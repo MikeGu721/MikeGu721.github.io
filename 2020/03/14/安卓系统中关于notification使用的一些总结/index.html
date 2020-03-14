@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          小结一下Android开发中intent和bundle的用法以及差异 - Hexo-theme-MikeGu721
+          安卓系统中关于notification使用的一些总结 - Hexo-theme-MikeGu721
         
     </title>
 
-    <link rel="canonical" href="https://mikegu721.github.io/2020/03/12/小结一下Android开发中intent和bundle的用法以及差异/">
+    <link rel="canonical" href="https://mikegu721.github.io/2020/03/14/安卓系统中关于notification使用的一些总结/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -109,20 +109,18 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#安卓" title="安卓">安卓</a>
-                            
                         </div>
-                        <h1>小结一下Android开发中intent和bundle的用法以及差异</h1>
+                        <h1>安卓系统中关于notification使用的一些总结</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by 兽族机枪兵 on
-                            2020-03-12
+                            2020-03-14
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">280</span> and
+                                Words <span class="post-count">51</span> and
                                 Reading Time <span class="post-count">1</span> Minutes
                             </span>
                             <div class="blank_box"></div>
@@ -262,30 +260,15 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="Intent传送数据的方式"><a href="#Intent传送数据的方式" class="headerlink" title="Intent传送数据的方式"></a>Intent传送数据的方式</h1><p>MainActivity页面中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; new Intent(MainActivity.this,DemoActivity.class);</span><br><span class="line">intent.putExtra(&quot;lucky_number&quot;,&quot;7&quot;);</span><br><span class="line">intent.putExtra(&quot;describe&quot;,&quot;This is my lucky number&quot;);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
-<p>DemoActivity页面中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; getIntent();</span><br><span class="line">describe &#x3D; intent.getStringExtra(&quot;describe&quot;);</span><br><span class="line">lucky_number &#x3D; intent.getIntExtra(&quot;lucky_number&quot;);</span><br><span class="line"></span><br><span class="line">Intent new_intent &#x3D; new Intent(DemoActivity.this,Demo2Activity);</span><br><span class="line">intent.putExtra(&quot;A_lucky_number&quot;,lucky_number);</span><br><span class="line">intent.putExtra(&quot;A_describe&quot;,describe);</span><br><span class="line">startActivity(new_intent);</span><br></pre></td></tr></table></figure>
-<p>然后Demo2Activity中再做相应的接受</p>
-<h1 id="Bundle传送数据的方式"><a href="#Bundle传送数据的方式" class="headerlink" title="Bundle传送数据的方式"></a>Bundle传送数据的方式</h1><p>MainActivity页面中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; new Intent(MainActivity,this,DemoActivity.class);</span><br><span class="line">Bundle bundle &#x3D; new Bundle();</span><br><span class="line">bundle.putString(&quot;describe&quot;,&quot;This is my lucky number&quot;);</span><br><span class="line">bundle.putInt(&quot;lucky_number&quot;,&quot;7&quot;);</span><br><span class="line">intent.putExtra(&quot;bundle&quot;,bundle);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
-<p>DemoActivity页面中：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Intent intent &#x3D; getIntent();</span><br><span class="line">bundle &#x3D; intent.getBundleExtra(&quot;bundle&quot;);</span><br><span class="line"></span><br><span class="line">Intent new_intent &#x3D; new Intent(DemoActivity.this,Demo2Activity.class);</span><br><span class="line">bundle.putBoolean(&quot;boolean&quot;,true);</span><br><span class="line">intent.putExtra(&quot;bundle&quot;,bundle);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
-<p>然后Demo2Activity中再做相应的接受</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>可以看到，当数据量小以及转发页面数不多的时候，Intent这种一个一个读的方法将有很大的轻便性；但当内容一旦增大，转发的页面数量一旦增多，远不如bundle这种将数据打包的方式来得清晰简洁。</p>
-
+                <h1 id="我以为我能解决notification的channel问题的时候建了这个文档"><a href="#我以为我能解决notification的channel问题的时候建了这个文档" class="headerlink" title="我以为我能解决notification的channel问题的时候建了这个文档"></a>我以为我能解决notification的channel问题的时候建了这个文档</h1><h1 id="建完后发现我解决不了"><a href="#建完后发现我解决不了" class="headerlink" title="建完后发现我解决不了"></a>建完后发现我解决不了</h1><h1 id="那就先放在这里吧，等我什么时候解决了回来填坑"><a href="#那就先放在这里吧，等我什么时候解决了回来填坑" class="headerlink" title="那就先放在这里吧，等我什么时候解决了回来填坑"></a>那就先放在这里吧，等我什么时候解决了回来填坑</h1>
                 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2020/03/14/安卓系统中关于notification使用的一些总结/" data-toggle="tooltip" data-placement="top" title="安卓系统中关于notification使用的一些总结">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2020/03/02/安卓开发-显示时间/" data-toggle="tooltip" data-placement="top" title="安卓开发 显示时间">Next Post &rarr;</a>
+                        <a href="/2020/03/12/小结一下Android开发中intent和bundle的用法以及差异/" data-toggle="tooltip" data-placement="top" title="小结一下Android开发中intent和bundle的用法以及差异">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -362,7 +345,7 @@ const myTheme = {
 
 
 const gitment = new Gitment({
-    id: 'Thu Mar 12 2020 20:38:42 GMT+0800', // optional
+    id: 'Sat Mar 14 2020 21:06:44 GMT+0800', // optional
     owner: "",
     repo: "",
     oauth: {
@@ -409,8 +392,6 @@ const gitment = new Gitment({
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#安卓" title="安卓">安卓</a>
-                        
                     </div>
                 </section>
                 
