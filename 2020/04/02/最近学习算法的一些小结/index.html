@@ -16,11 +16,11 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <title>
         
-          最近进行安卓开发时遇到的一些问题 - Hexo-theme-MikeGu721
+          最近学习算法的一些小结 - Hexo-theme-MikeGu721
         
     </title>
 
-    <link rel="canonical" href="https://mikegu721.github.io/2020/03/19/最近进行安卓开发时遇到的一些问题/">
+    <link rel="canonical" href="https://mikegu721.github.io/2020/04/02/最近学习算法的一些小结/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -109,21 +109,21 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#安卓开发" title="安卓开发">安卓开发</a>
+                              <a class="tag" href="/tags/#算法" title="算法">算法</a>
                             
                         </div>
-                        <h1>最近进行安卓开发时遇到的一些问题</h1>
+                        <h1>最近学习算法的一些小结</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by 兽族机枪兵 on
-                            2020-03-19
+                            2020-04-02
                         </span>
 
                         
                             <div class="blank_box"></div>
                             <span class="meta">
-                                Words <span class="post-count">404</span> and
-                                Reading Time <span class="post-count">1</span> Minutes
+                                Words <span class="post-count">1.1k</span> and
+                                Reading Time <span class="post-count">5</span> Minutes
                             </span>
                             <div class="blank_box"></div>
                             <!-- 不蒜子统计 start -->
@@ -262,31 +262,34 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="调用其他布局文件中的控件"><a href="#调用其他布局文件中的控件" class="headerlink" title="调用其他布局文件中的控件"></a>调用其他布局文件中的控件</h1><p>今天在学习安卓数据库的时候，创建了一个布局作为对话框来进行输入</p>
-<p>布局文件名为findstudent，里面有一个EditText控件id为etStudentId</p>
-<p>最开始，我就用我以为的方法解析布局文件并关联控件再读取控件信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">private String id &#x3D; &quot;-1&quot;;</span><br><span class="line">View view &#x3D; LayoutInflater.from(this).inflate(R.layout.findstudent,null);</span><br><span class="line">final EditText etFindStudentId &#x3D; (EditText)findViewById(R.id.etFindStudentId);</span><br><span class="line">dlg &#x3D; new AlertDialog.Builder(this)</span><br><span class="line">	.setView(view)</span><br><span class="line">	.setPositiveButton(&quot;确定&quot;, new DialogInterface.OnClickListener() &#123;</span><br><span class="line">		@Override</span><br><span class="line">		public void onClick(DialogInterface dialog, int which) &#123;</span><br><span class="line">			&#x2F;&#x2F;得到输入的id</span><br><span class="line">			id &#x3D; etFindStudentId.getText().toString().trim();</span><br><span class="line">			&#x2F;&#x2F;查找</span><br><span class="line">			findStudentById(id);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">.setNegativeButton(&quot;取消&quot;, new DialogInterface.OnClickListener() &#123;</span><br><span class="line">	@Override</span><br><span class="line">	public void onClick(DialogInterface dialog, int which) &#123;</span><br><span class="line">	id&#x3D;&quot;-1&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">.create();</span><br></pre></td></tr></table></figure>
-<p>上面的findStudentById(id)可以根据id所指向的位置来给主布局中的一些控件返回信息</p>
-<p>但这段代码编译运行之后一直出现空指针</p>
-<p>最后发现问题出在关联上面了——具体原理我还解释不清楚，但需要在临时布局中得到控件的信息，需要使用view.findViewById，前面的view是解析布局文件而返回的View</p>
-<h1 id="Broadcast中的创建问题"><a href="#Broadcast中的创建问题" class="headerlink" title="Broadcast中的创建问题"></a>Broadcast中的创建问题</h1><p>最开始我在onCreate()中创建意图过滤器和广播接收器：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IntentFilter filter &#x3D; new IntentFilter(io.mikegu721.broadcast);</span><br><span class="line">LocalBroadcaseManager.getInstance(this).registerReceiver(bgChangeReceiver,filter);</span><br></pre></td></tr></table></figure>
-<p>然后发现，无论怎么修改代码，都会出现空指针错误</p>
-<p>最后翻阅了各种资料才发现，上面两个创建过程在新版本的Android Studio中要写在onStart()中</p>
-<p>以及unregisterReceiver要写在onStop()中而不是onDestroy()中</p>
+                <p>最近终于是把两本厚厚的算法书给刷完了，买了新的书，还没到货，打算复习下前几个月学的算法，总结一些小技巧</p>
+<h2 id="利用散列表记录“路过数据”"><a href="#利用散列表记录“路过数据”" class="headerlink" title="利用散列表记录“路过数据”"></a>利用散列表记录“路过数据”</h2><p>思路源于一道PAT甲级题目(3n+1)，里面会给你很多很多数字，让你去查询这些数字最后经过一个特定的算法后会不会得到一个特定的值，而每个数字在经过该算法往下走一步时，都会变成一个新的数字，那么很多数字就会重复出现在其他数字的求解过程中。如果能有效的记录重复出现过的数字，将会大大地简化算法复杂度，而散列表则可以很好的完成这个任务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">for(int i&#x3D;0;i&lt;n;i++)&#123;</span><br><span class="line">	cin&gt;&gt;a[i];</span><br><span class="line">	m&#x3D;a[i];</span><br><span class="line">	while(m!&#x3D;1)&#123;</span><br><span class="line">		if(HashTable[m]&#x3D;&#x3D;true)break;</span><br><span class="line">		HashTable[m]&#x3D;true;</span><br><span class="line">		if(m%2&#x3D;&#x3D;1)m&#x3D;(3*m+1)&#x2F;2;</span><br><span class="line">		else m&#x3D;m&#x2F;2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二分法解方程"><a href="#二分法解方程" class="headerlink" title="二分法解方程"></a>二分法解方程</h2><p>解方程的方法适用范围非常广，算是一个通用算法，书上使用的是二分法来不断地逼近方程的值，当left和right相差一个非常小的量时将该值返回：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const double eps &#x3D; 1e-5;</span><br><span class="line">double f(double x)&#123;</span><br><span class="line">	return 方程;</span><br><span class="line">&#125;</span><br><span class="line">double solve(double L,double R)&#123;</span><br><span class="line">	double left &#x3D; L,right &#x3D; R;</span><br><span class="line">	while(right-left&gt;eps)&#123;</span><br><span class="line">		mid &#x3D; (left+right)&#x2F;2;</span><br><span class="line">		if(f(mid)&gt;常数)&#123;</span><br><span class="line">			right &#x3D; mid;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			left &#x3D; mid;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return mid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这个算法的功能是返回一个double值，该值与”方程=常数”的解的误差小于eps</p>
+<h2 id="求-a-b-m的快速幂算法"><a href="#求-a-b-m的快速幂算法" class="headerlink" title="求(a^b)%m的快速幂算法"></a>求(a^b)%m的快速幂算法</h2><p>这个算法并不难，暴力法可以得出答案，但这里想讲一种复杂度更小的算法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int binaryPow(int a,int b,int m)&#123;</span><br><span class="line">	if(b&#x3D;&#x3D;0)return 1;</span><br><span class="line">	if(b%2&#x3D;&#x3D;1)return a*binaryPow(a,b-1,m)%m;</span><br><span class="line">	else&#123;</span><br><span class="line">		int mul &#x3D; binaryPow(a,b&#x2F;2,m);</span><br><span class="line">		return mul*mul%m;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>暴力法的复杂度未O(b)而上面的递归算法的复杂度为O(logb)</p>
+<p>但递归算法需要用到系统栈，效率没有非递归算法高，下面再给出一个非递归算法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int binaryPow(int a,int b,int m)&#123;</span><br><span class="line">	int ans &#x3D; 1;</span><br><span class="line">	if(b&amp;1)&#123;&#x2F;&#x2F;如果b的二进制位第一位为1</span><br><span class="line">		ans &#x3D; ans*a%m;</span><br><span class="line">	&#125;</span><br><span class="line">	a&#x3D;a*a%m;&#x2F;&#x2F;a变为自己的平方</span><br><span class="line">	b&gt;&gt;&#x3D;1;&#x2F;&#x2F;b右移一位</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="归并排序递归和非递归"><a href="#归并排序递归和非递归" class="headerlink" title="归并排序递归和非递归"></a>归并排序递归和非递归</h2><p>归并排序的复杂度很低，而且适用于外部存储排序，适用范围非常广，算法原理很简单，算法代码很有意思，先给出合并代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void merge(int A[],int L1,int R1,int L2,int R2)&#123;</span><br><span class="line">	int i&#x3D;L1,j&#x3D;L2;</span><br><span class="line">	int temp[maxn],index&#x3D;0;</span><br><span class="line">	while(i&lt;&#x3D;R1&amp;&amp;j&lt;&#x3D;R2)&#123;</span><br><span class="line">		if(A[i]&lt;&#x3D;A[j])temp[index++]&#x3D;A[i++];</span><br><span class="line">		else temp[index++]&#x3D;A[j++];</span><br><span class="line">	&#125;</span><br><span class="line">	while(i&lt;&#x3D;R1)temp[index++]&#x3D;A[i++];</span><br><span class="line">	while(j&lt;&#x3D;R2)temp[index++]&#x3D;A[j++];</span><br><span class="line">	for(int i&#x3D;0;i&lt;index;i++)&#123;</span><br><span class="line">		A[L1+i]&#x3D;temp[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面这串代码是用于合并A[]数组中从L1到R1和L2到R2的内容，而合并只是归并中的一个部分，归并数组如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void mergeSort(int A[],int left,int right)&#123;</span><br><span class="line">	int mid &#x3D; left&#x2F;2;</span><br><span class="line">	mergeSort(A[],left,mid);</span><br><span class="line">	mergeSort(A[],mid+1,right);</span><br><span class="line">	merge(A[],left,mid,mid+1,right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面是递归代码，非常简单，但无法清楚判断哪里是一步归并的结束，有PAT甲级题目要求每一步结束都要输出排序后的数组，那么就得用下面这种非递归的算法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void mergeSort(int A[])&#123;</span><br><span class="line">	for(int step &#x3D; 2;step&#x2F;2&lt;&#x3D;n;step*&#x3D;2)&#123;</span><br><span class="line">		for(int i&#x3D;1;i&lt;&#x3D;n;i+&#x3D;step)&#123;</span><br><span class="line">			int mid &#x3D; i+step&#x2F;2-1;</span><br><span class="line">			if(mid+1&lt;&#x3D;n)&#123;</span><br><span class="line">				merge(A,i,mid,mid+1,min(i+step-1,n));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		&#x2F;&#x2F;这里是一步的结束，如果需要输出每一步归并后的数组，则在这里写输出代码</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="利用并查集求树的连通数"><a href="#利用并查集求树的连通数" class="headerlink" title="利用并查集求树的连通数"></a>利用并查集求树的连通数</h2><p>这里的算法需要用到并查集，并查集的代码比较简单，这里不再给出，直接写下计算连通分量的算法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">bool vis[maxn];</span><br><span class="line">int calBlock(int n,int G[][])&#123;</span><br><span class="line">	int counting&#x3D;0;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++)&#123;</span><br><span class="line">		vis[findFather(i)]&#x3D;true</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++)&#123;</span><br><span class="line">		if(vis[i]&#x3D;&#x3D;true)</span><br><span class="line">		counting++;</span><br><span class="line">	&#125;</span><br><span class="line">	return counting;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2020/04/02/最近学习算法的一些小结/" data-toggle="tooltip" data-placement="top" title="最近学习算法的一些小结">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2020/03/14/安卓系统中关于notification使用的一些总结/" data-toggle="tooltip" data-placement="top" title="安卓系统中关于notification使用的一些总结">Next Post &rarr;</a>
+                        <a href="/2020/03/19/最近进行安卓开发时遇到的一些问题/" data-toggle="tooltip" data-placement="top" title="最近进行安卓开发时遇到的一些问题">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -363,7 +366,7 @@ const myTheme = {
 
 
 const gitment = new Gitment({
-    id: 'Thu Mar 19 2020 21:30:29 GMT+0800', // optional
+    id: 'Thu Apr 02 2020 15:35:53 GMT+0800', // optional
     owner: "",
     repo: "",
     oauth: {
@@ -410,7 +413,7 @@ const gitment = new Gitment({
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#安卓开发" title="安卓开发">安卓开发</a>
+                          <a class="tag" href="/tags/#算法" title="算法">算法</a>
                         
                     </div>
                 </section>
