@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>最近进行安卓开发时遇到的一些问题</title>
+      <link href="/2020/03/19/%E6%9C%80%E8%BF%91%E8%BF%9B%E8%A1%8C%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
+      <url>/2020/03/19/%E6%9C%80%E8%BF%91%E8%BF%9B%E8%A1%8C%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="调用其他布局文件中的控件"><a href="#调用其他布局文件中的控件" class="headerlink" title="调用其他布局文件中的控件"></a>调用其他布局文件中的控件</h1><p>今天在学习安卓数据库的时候，创建了一个布局作为对话框来进行输入</p><p>布局文件名为findstudent，里面有一个EditText控件id为etStudentId</p><p>最开始，我就用我以为的方法解析布局文件并关联控件再读取控件信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">private String id &#x3D; &quot;-1&quot;;</span><br><span class="line">View view &#x3D; LayoutInflater.from(this).inflate(R.layout.findstudent,null);</span><br><span class="line">final EditText etFindStudentId &#x3D; (EditText)findViewById(R.id.etFindStudentId);</span><br><span class="line">dlg &#x3D; new AlertDialog.Builder(this)</span><br><span class="line">.setView(view)</span><br><span class="line">.setPositiveButton(&quot;确定&quot;, new DialogInterface.OnClickListener() &#123;</span><br><span class="line">@Override</span><br><span class="line">public void onClick(DialogInterface dialog, int which) &#123;</span><br><span class="line">&#x2F;&#x2F;得到输入的id</span><br><span class="line">id &#x3D; etFindStudentId.getText().toString().trim();</span><br><span class="line">&#x2F;&#x2F;查找</span><br><span class="line">findStudentById(id);</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">.setNegativeButton(&quot;取消&quot;, new DialogInterface.OnClickListener() &#123;</span><br><span class="line">@Override</span><br><span class="line">public void onClick(DialogInterface dialog, int which) &#123;</span><br><span class="line">id&#x3D;&quot;-1&quot;;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br><span class="line">.create();</span><br></pre></td></tr></table></figure><p>上面的findStudentById(id)可以根据id所指向的位置来给主布局中的一些控件返回信息</p><p>但这段代码编译运行之后一直出现空指针</p><p>最后发现问题出在关联上面了——具体原理我还解释不清楚，但需要在临时布局中得到控件的信息，需要使用view.findViewById，前面的view是解析布局文件而返回的View</p><h1 id="Broadcast中的创建问题"><a href="#Broadcast中的创建问题" class="headerlink" title="Broadcast中的创建问题"></a>Broadcast中的创建问题</h1><p>最开始我在onCreate()中创建意图过滤器和广播接收器：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IntentFilter filter &#x3D; new IntentFilter(io.mikegu721.broadcast);</span><br><span class="line">LocalBroadcaseManager.getInstance(this).registerReceiver(bgChangeReceiver,filter);</span><br></pre></td></tr></table></figure><p>然后发现，无论怎么修改代码，都会出现空指针错误</p><p>最后翻阅了各种资料才发现，上面两个创建过程在新版本的Android Studio中要写在onStart()中</p><p>以及unregisterReceiver要写在onStop()中而不是onDestroy()中</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 安卓开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>安卓系统中关于notification使用的一些总结</title>
       <link href="/2020/03/14/%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%85%B3%E4%BA%8Enotification%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/"/>
       <url>/2020/03/14/%E5%AE%89%E5%8D%93%E7%B3%BB%E7%BB%9F%E4%B8%AD%E5%85%B3%E4%BA%8Enotification%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/</url>
